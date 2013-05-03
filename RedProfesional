@@ -28,6 +28,7 @@ public class RedProfesional{
         String texto=new String();
         String nom=new String();
         String name=new String();
+        String res=new String();
         
         TreeMap<String,Persona>contactos=new TreeMap();
         ArrayList<Publicacion>publica=new ArrayList();
@@ -70,9 +71,14 @@ public class RedProfesional{
        publica.add(pub0);
        
        
-        System.out.println("-----");
-        System.out.println("Hola "+nombre+",\n"+"¿Que quieres hacer?");
-        System.out.println("-----");
+       
+        
+        
+        
+        while(!"si".equals(res)){
+             System.out.println("-----");
+             System.out.println("Hola "+nombre+",\n"+"¿Que quieres hacer?");
+             System.out.println("-----");
             System.out.println("'contactos': para ver la lista de contactos.");
             System.out.println("'publicaciones': para ver las publiaciones de un contacto.");
             System.out.println("'publicaciones+contacto': para ver las publicaciones de un contacto concreto.");
@@ -81,22 +87,24 @@ public class RedProfesional{
             System.out.println("'salir': para salir de la red.");
             System.out.println("-----");
             System.out.print("> ");
-        
-        
-        String var=leerLinea();
+            String var=leerLinea();
+            
         while (!"salir".equals(var))
         {
+            
         
         if("contactos".compareTo(var)==0){
-            
+           
+             System.out.println("\t>>Contactos de "+persona.getNombre()+"<<");
              Iterator<Persona>it=contactos.values().iterator();
              while(it.hasNext()){
-                 System.out.println(it.next());
+                 System.out.println(">>"+it.next());
              }
         
         }
         
         if("publicaciones".compareTo(var)==0){
+            System.out.println("\t>>Publicaciones de "+persona.getNombre()+"<<");
             Iterator<Publicacion>it=publica.listIterator();
              while(it.hasNext()){
                  System.out.println(it.next());
@@ -107,6 +115,7 @@ public class RedProfesional{
         if(var.startsWith("publicaciones ")) {
             String[] var0 = var.split(" ",2);
             nom=var0[1];
+            System.out.println("\t>>Publicaciones de "+nom+"<<");
             Iterator<Persona> it=contactos.values().iterator();
             while(it.hasNext()){
                 Persona per=it.next();
@@ -142,7 +151,7 @@ public class RedProfesional{
         }*/
             
         if(var.startsWith("publicar")){
-            
+            System.out.println(">>Nueva publicacion<<");
             String[] var1 = var.split(" ",2);
             texto=var1[1];
             
@@ -162,8 +171,17 @@ public class RedProfesional{
             
         }
         System.out.println("-----");
+        System.out.println(">>Introduce nueva orden: "+"Escribe ayuda si no sabes que hacer<<");
         System.out.print("> ");
         var=leerLinea();
+        
+      }
+        System.out.println("¿Seguro que quiere salir?");
+            res=leerLinea();
         }
+              
+        
+          
+          
       }
     }
