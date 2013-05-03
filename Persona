@@ -1,3 +1,4 @@
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -15,13 +16,19 @@ public class Persona {
     private String nombre;
     private String puesto;
     private String empresa;
+    private String texto;
+    private long fecha;
     private TreeMap<String,Persona>contactos;
     private ArrayList<Publicacion>publica;
     
-    public Persona(String nombre,String puesto, String empresa){
+    
+    public Persona(String nombre,String puesto, String empresa,long fecha, String texto){
        this.nombre=nombre;
        this.puesto=puesto;
        this.empresa=empresa;
+       this.fecha=fecha;
+       this.texto=texto;
+       
        
     }
     
@@ -33,6 +40,14 @@ public class Persona {
     }
     public String getPuesto(){
         return this.puesto;
+    }
+    
+    public String texto(){
+        return this.texto;
+    }
+
+    public long getFecha() {
+        return this.fecha;
     }
     
     public void agregarContacto(Persona contacto){
