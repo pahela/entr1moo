@@ -33,6 +33,7 @@ public class RedProfesional{
         TreeMap<String,Persona>contactos=new TreeMap();
         ArrayList<Publicacion>publica=new ArrayList();
 
+        System.out.println("/t  ▲\n▲ ▲");
         System.out.println("Bienvenido, si quieres darte de alta sigue los pasos, y recuerda, escribe \"ayuda\" si no sabes que hacer");
         System.out.println("¿Como te llamas?");
         
