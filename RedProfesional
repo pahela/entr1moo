@@ -13,7 +13,7 @@ import java.util.Iterator;
  *
  * @author p.hernandez.lazaro
  */
-public class RedProfesional{ 
+public class RedProfessional{ 
     
     public static String leerLinea(){
         Scanner lector = new Scanner(System.in);
@@ -43,14 +43,14 @@ public class RedProfesional{
         
         puesto=leerLinea();
         
-        Persona persona=new Persona(nombre,puesto,empresa);
+        Persona persona=new Persona(nombre,puesto,empresa,Fecha.getFechaActual(),"Hola me llamo Margarita");
         
-       Persona contacto1=new Persona("Mortadelo","Agente secreto","T.I.A.");
-       Persona contacto2=new Persona("Filemón","Agente secreto", "T.I.A.");
-       Persona contacto3=new Persona ("El súper", "Intendiente", "T.I.A.");
-       Persona contacto4=new Persona ("Astérix", "Guerrero", "Fuerzas por la resistencia de la Galia");
-       Persona contacto5=new Persona ("Conan", "Detective", "En el paro");
-       Persona contacto6=new Persona ("Aquaman", "Superhéroe", "DC Comics");
+       Persona contacto1=new Persona("Mortadelo","Agente secreto","T.I.A.",Fecha.getFechaActual(),"Busco tienda de disfraces, area Madrid");
+       Persona contacto2=new Persona("Filemón","Agente secreto", "T.I.A.",Fecha.getFechaActual(),"¿¿Donde esta el profesor Bacterio??");
+       Persona contacto3=new Persona ("El súper", "Intendiente", "T.I.A.",Fecha.getFechaActual(),"Mortadelo!!");
+       Persona contacto4=new Persona ("Astérix", "Guerrero", "Fuerzas por la resistencia de la Galia",Fecha.getFechaActual(),"Estan locos estos romanos!" );
+       Persona contacto5=new Persona ("Conan", "Detective", "En el paro",Fecha.getFechaActual(),"Busco nuevos casos ha resolver");
+       Persona contacto6=new Persona ("Aquaman", "Superhéroe", "DC Comics",Fecha.getFechaActual(),"Busco nuevas experiencias en el area de animacion acuatica");
        contactos.put("Mortadelo", contacto1);
        contactos.put("Filemón", contacto2);
        contactos.put("El súper", contacto3);
