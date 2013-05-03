@@ -13,7 +13,7 @@ import java.util.Iterator;
  *
  * @author p.hernandez.lazaro
  */
-public class RedProfessional{ 
+public class RedProfesional{ 
     
     public static String leerLinea(){
         Scanner lector = new Scanner(System.in);
@@ -33,33 +33,33 @@ public class RedProfessional{
         ArrayList<Publicacion>publica=new ArrayList();
 
         System.out.println("Bienvenido, si quieres darte de alta sigue los pasos, y recuerda, escribe \"ayuda\" si no sabes que hacer");
-        System.out.println("¿Cómo te llamas?");
+        System.out.println("¿Como te llamas?");
         
         nombre=leerLinea();
-        System.out.println("¿En qué empresa trabajas?");
+        System.out.println("¿En que empresa trabajas?");
         
         empresa=leerLinea();
         System.out.println("¿En que puesto?");
         
         puesto=leerLinea();
         
-        Persona persona=new Persona(nombre,puesto,empresa,Fecha.getFechaActual(),"Hola me llamo Margarita");
+        Persona persona=new Persona(nombre,puesto,empresa,Fecha.getFechaActual(),"Hola me llamo "+nombre);
         
        Persona contacto1=new Persona("Mortadelo","Agente secreto","T.I.A.",Fecha.getFechaActual(),"Busco tienda de disfraces, area Madrid");
-       Persona contacto2=new Persona("Filemón","Agente secreto", "T.I.A.",Fecha.getFechaActual(),"¿¿Donde esta el profesor Bacterio??");
-       Persona contacto3=new Persona ("El súper", "Intendiente", "T.I.A.",Fecha.getFechaActual(),"Mortadelo!!");
-       Persona contacto4=new Persona ("Astérix", "Guerrero", "Fuerzas por la resistencia de la Galia",Fecha.getFechaActual(),"Estan locos estos romanos!" );
+       Persona contacto2=new Persona("Filemon","Agente secreto", "T.I.A.",Fecha.getFechaActual(),"¿¿Donde esta el profesor Bacterio??");
+       Persona contacto3=new Persona ("El super", "Intendiente", "T.I.A.",Fecha.getFechaActual(),"Mortadelo!!");
+       Persona contacto4=new Persona ("Asterix", "Guerrero", "Fuerzas por la resistencia de la Galia",Fecha.getFechaActual(),"Estan locos estos romanos!" );
        Persona contacto5=new Persona ("Conan", "Detective", "En el paro",Fecha.getFechaActual(),"Busco nuevos casos ha resolver");
        Persona contacto6=new Persona ("Aquaman", "Superhéroe", "DC Comics",Fecha.getFechaActual(),"Busco nuevas experiencias en el area de animacion acuatica");
        contactos.put("Mortadelo", contacto1);
-       contactos.put("Filemón", contacto2);
-       contactos.put("El súper", contacto3);
-       contactos.put("Astérix", contacto4);
+       contactos.put("Filemon", contacto2);
+       contactos.put("El super", contacto3);
+       contactos.put("Asterix", contacto4);
        contactos.put("Conan", contacto5);
        contactos.put("Aquaman", contacto6);
        
        
-       Publicacion pub0=new Publicacion(Fecha.getFechaActual(),"Hola me llamo Margarita");
+       Publicacion pub0=new Publicacion(Fecha.getFechaActual(),"Hola me llamo "+persona.getNombre());
        Publicacion pub1=new Publicacion(Fecha.getFechaActual(),"Busco tienda de disfraces, area Madrid");
        Publicacion pub2=new Publicacion(Fecha.getFechaActual(),"¿¿Donde esta el profesor Bacterio??");
        Publicacion pub3=new Publicacion(Fecha.getFechaActual(),"Mortadelo!!");
@@ -71,7 +71,7 @@ public class RedProfessional{
        
        
         System.out.println("-----");
-        System.out.println("Hola "+nombre+",\n"+"¿Qué quieres hacer?");
+        System.out.println("Hola "+nombre+",\n"+"¿Que quieres hacer?");
         System.out.println("-----");
             System.out.println("'contactos': para ver la lista de contactos.");
             System.out.println("'publicaciones': para ver las publiaciones de un contacto.");
@@ -109,8 +109,11 @@ public class RedProfessional{
             nom=var0[1];
             Iterator<Persona> it=contactos.values().iterator();
             while(it.hasNext()){
-                if(it.next().getNombre().equalsIgnoreCase(nom)){
-                    System.out.println(" ");
+                Persona per=it.next();
+
+                if(per.getNombre().equalsIgnoreCase(nom)){
+                    Publicacion pub=new Publicacion(Fecha.getFechaActual(),per.getTexto());
+                    System.out.println(pub);
                    
                 }
             }/*if(!(it.next().getNombre().equalsIgnoreCase(nom))){
