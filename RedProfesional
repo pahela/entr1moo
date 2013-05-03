@@ -1,3 +1,4 @@
+
 /*
 /*
  * To change this template, choose Tools | Templates
@@ -29,21 +30,24 @@ public class RedProfesional{
         String nom=new String();
         String name=new String();
         String res=new String();
+        int buck=0;
+        int a=0;
         
         TreeMap<String,Persona>contactos=new TreeMap();
         ArrayList<Publicacion>publica=new ArrayList();
 
-        System.out.println("\t ▲\n\t▲ ▲");
-        System.out.println("Bienvenido, si quieres darte de alta sigue los pasos, y recuerda, escribe \"ayuda\" si no sabes que hacer");
-        System.out.println("¿Como te llamas?");
+        System.out.println("\t\t\t ▲\n\t\t\t▲ ▲");
+        System.out.println("Bienvenido, para darse de alta, siga los siguientes pasos");
+        System.out.println("\t¿Como te llamas?");
         
         nombre=leerLinea();
-        System.out.println("¿En que empresa trabajas?");
+        System.out.println("\t¿En que empresa trabajas?");
         
         empresa=leerLinea();
-        System.out.println("¿En que puesto?");
+        System.out.println("\t¿En que puesto?");
         
         puesto=leerLinea();
+        
         
         Persona persona=new Persona(nombre,puesto,empresa,Fecha.getFechaActual(),"Hola me llamo "+nombre);
         
@@ -77,6 +81,7 @@ public class RedProfesional{
         
         
         while(!"si".equals(res)){
+            
              System.out.println("-----");
              System.out.println("Hola "+nombre+",\n"+"¿Que quieres hacer?");
              System.out.println("-----");
@@ -118,23 +123,34 @@ public class RedProfesional{
             nom=var0[1];
             System.out.println("\t>>Publicaciones de "+nom+"<<");
             Iterator<Persona> it=contactos.values().iterator();
-            while(it.hasNext()){
+            while(it.hasNext()&&a==0){
                 Persona per=it.next();
+                int max=contactos.size();
+                
+                buck++;
 
                 if(per.getNombre().equalsIgnoreCase(nom)){
                     Publicacion pub=new Publicacion(Fecha.getFechaActual(),per.getTexto());
                     System.out.println(pub);
+                    buck--;
                    
                 }
-            }/*if(!(it.next().getNombre().equalsIgnoreCase(nom))){
-            System.out.print("No hay tal contacto en tu lista");
-        }*/
+               if(buck==max){
+                   
+                   
+               
+                     
+            System.out.println("No hay tal contacto en tu lista\nUsa 'contactos' para ver tus contactos");
+            a++;
+            }
+                }
+        }
             
             
             
                 
              
-        }
+        
          /*if(var.startsWith("agregar")){
             
             String[]var2=var.split(" ",2);
@@ -165,7 +181,8 @@ public class RedProfesional{
         if("ayuda".compareTo(var)==0){
             System.out.println("Escoge una opcion: ");
             System.out.println("'contactos': para ver la lista de contactos.");
-            System.out.println("'publicaciones': para ver las publicaciones de un contacto.");
+            System.out.println("'publicaciones': para ver las publiaciones de un contacto.");
+            System.out.println("'publicaciones+contacto': para ver las publicaciones de un contacto concreto.");
             System.out.println("'publicar': para publicar una nueva publicacion.");
             System.out.println("'ayuda': para mostrar la ayuda (again).");
             System.out.println("'salir': para salir de la red.");
@@ -175,11 +192,13 @@ public class RedProfesional{
         System.out.println(">>Introduce nueva orden: "+"Escribe ayuda si no sabes que hacer<<");
         System.out.print("> ");
         var=leerLinea();
+        buck=0;
         
       }
-        System.out.println("¿Seguro que quiere salir?");
+        System.out.println("¿Seguro que quiere salir? (si/no)");
             res=leerLinea();
         }
+        System.out.println("\t\t\t ▲\n\t\t\t▲ ▲");
               
         
           
