@@ -26,6 +26,8 @@ public class RedProfesional{
         String puesto=new String();
         String empresa=new String();
         String texto=new String();
+        String nom=new String();
+        String name=new String();
         
         TreeMap<String,Persona>contactos=new TreeMap();
         ArrayList<Publicacion>publica=new ArrayList();
@@ -102,14 +104,37 @@ public class RedProfesional{
         }
         }
              
-        if(("publicaciones "+persona.getNombre()).compareTo(var)==0) {
-             while (persona.iteradorContactos().hasNext()){
-                Persona pers=persona.iteradorContactos().next();
-                if(persona.getNombre().equalsIgnoreCase(pers.getNombre())){
-                    
+        if(var.startsWith("publicaciones ")) {
+            String[] var0 = var.split(" ",2);
+            nom=var0[1];
+            Iterator<Persona> it=contactos.values().iterator();
+            while(it.hasNext()){
+                if(it.next().getNombre().equalsIgnoreCase(nom)){
+                    System.out.println(" ");
+                   
                 }
-             }
+            }
+            
+            
+            
+                
+             
         }
+         /*if(var.startsWith("agregar")){
+            
+            String[]var2=var.split(" ",2);
+            name=var2[1];
+            Iterator<Persona> it=contactos.values().iterator();
+            while(it.hasNext()){
+                if(!it.next().getNombre().equalsIgnoreCase(nom)){
+                    persona.agregarContacto(it.next());
+                    System.out.println("Contacto agregado");
+                    
+                }else{
+                    System.out.println("El contacto está en tu lista");
+                }
+        }  
+        }*/
             
         if(var.startsWith("publicar")){
             
