@@ -113,7 +113,9 @@ public class RedProfesional{
                     System.out.println(" ");
                    
                 }
-            }
+            }/*if(!(it.next().getNombre().equalsIgnoreCase(nom))){
+            System.out.print("No hay tal contacto en tu lista");
+        }*/
             
             
             
