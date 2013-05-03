@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package entregable1;
-import java.util.Iterator; //Crec q dona warning pq no lutilitzem be en la funcio toString()
+import java.util.Iterator; 
 import java.util.TreeMap;
 import java.util.ArrayList;
 
@@ -67,9 +67,9 @@ public class Persona {
         return it;
     }
     public String toString(){
-        return "Nom: "+this.nombre+"\t\tPuesto: "+this.puesto+"\t\tEmpresa:"+this.empresa;
+        return "Nom: "+this.nombre+"\t\tPuesto: "+this.puesto+"\t\tEmpresa: "+this.empresa+"\nPublicaciones: "+this.texto+"\n-----";
         
     }
-    //Falta printar les publicacions.
+    
     
 }
